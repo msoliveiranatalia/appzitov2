@@ -23,16 +23,18 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        
         guard let movie = movie else {
             return
         }
-
+        let movieGenres = movie.genres?.joined(separator: ", ")
+        
         self.title = movie.title
         self.backdropImage.image = UIImage(named: movie.backdropPath)
         titleLabel.text = movie.title
         posterImage.image = UIImage (named: movie.posterPath)
         ratingLabel.text = "Rating: \(movie.voteAverage)/10"
-        genres.text = 
+        genres.text = movieGenres
         overviewLabel.text = movie.overview
         
     }
